@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const targetDir = path.resolve(__dirname, 'dist');
+const targetDir = path.resolve(__dirname, 'build');
 
 module.exports = {
   output: {
