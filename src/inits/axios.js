@@ -10,7 +10,7 @@ function setHeaders(config) {
 }
 
 export function initAxios() {
-  axios.defaults.baseUrl = baseUrl;
+  axios.defaults.baseURL = baseUrl;
 
   axios.interceptors.request.use(setHeaders, processServerError);
 }

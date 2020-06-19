@@ -1,13 +1,13 @@
 import React from 'react';
 
-import MainHoc from '@/components/HOC/MainHOC';
+import MainHOC from '@/components/HOC/MainHOC';
 import Router from '@/routes/Router';
 
 const App = () => {
   return (
-    <MainHoc>
+    <MainHOC>
       <Router />
-    </MainHoc>
+    </MainHOC>
   );
 };
 

@@ -133,4 +133,9 @@ module.exports = {
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
+  devServer: {
+    port: 3000,
+    contentBase: path.join(__dirname, 'build'),
+    historyApiFallback: true,
+  },
 };
