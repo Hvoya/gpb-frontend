@@ -43,6 +43,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@holism/core": "^2.5.10",
     "axios": "^0.19.2",
     "react": "^16.12.0",
