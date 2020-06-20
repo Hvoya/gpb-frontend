@@ -17,6 +17,7 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -43,7 +44,6 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@holism/core": "^2.5.10",
     "axios": "^0.19.2",
     "react": "^16.12.0",
