@@ -40,12 +40,13 @@ const SSmall = styled(Text)`
   color: ${layoutConstants.fontColorTertiary};
 `;
 
-const IdeaCard = ({ type, idea = {} }) => {
+const IdeaCard = ({ type, idea }) => {
+  idea = idea || { themes_info: {} };
   return (
     <Paper height={type ? '170px' : '292px'}>
       <SContainer>
         <STop type={type}>
-          <STopic>{idea.themes_info?.name}</STopic>
+          <STopic>{idea.themes_info.name}</STopic>
           <SHead>
             <SH>{idea.theme}</SH>
             <SSmall>Влад Елисеев 27.05.2020</SSmall>

@@ -27,7 +27,7 @@ const IdeasSearchBlock = () => {
         params: {
           limit: 10,
           search,
-          themes: theme?.id,
+          themes: theme && theme.id,
         },
       })
       .then(r => setIdeas(r.data.results));
