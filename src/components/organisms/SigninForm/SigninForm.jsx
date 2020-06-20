@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { loginRequest } from '@/store/actions/user';
+import { loginRequestAction } from '@/store/actions/user';
 
 const SigninForm = () => {
   const dispatch = useDispatch();
-  dispatch(loginRequest());
+  dispatch(loginRequestAction());
 
   return (
     <div>

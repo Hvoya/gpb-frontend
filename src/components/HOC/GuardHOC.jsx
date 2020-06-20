@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { path } from '@/enums/path';
 import { getToken } from '@/utils/ls';
-import { login } from '@/store/actions/user';
+import { loginAction } from '@/store/actions/user';
 
 const GuardHoc = ({ children }) => {
   const history = useHistory();
@@ -13,7 +13,7 @@ const GuardHoc = ({ children }) => {
   const token = getToken();
   const isAuthPath = location.pathname.includes(path.auth);
 
-  if (token) dispatch(login());
+  if (token) dispatch(loginAction());
   if (!token && !isAuthPath) history.push(path.auth);
 
   return children;
