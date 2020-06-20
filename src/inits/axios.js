@@ -5,7 +5,7 @@ import { processServerError } from '@/utils/errors';
 import { getToken } from '@/utils/ls';
 
 function setHeaders(config) {
-  config.headers.authorization = getToken();
+  config.headers.Authorization = 'Token ' + getToken();
   return config;
 }
 

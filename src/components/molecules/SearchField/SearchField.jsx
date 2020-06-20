@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '@holism/core';
 import { SearchIcon } from '@holism/icons';
@@ -36,11 +36,15 @@ const SIcon = styled(SearchIcon)`
   cursor: pointer;
 `;
 
-const SearchField = () => {
+const SearchField = ({ onChange }) => {
+  const [v, setV] = useState();
+  const handleChange = () => {
+    onChange(v);
+  };
   return (
     <SContainer>
-      <SInput icon={SearchIcon} />
-      <SIcon />
+      <SInput value={v} onChange={e => setV(e.target.value)} icon={SearchIcon} />
+      <SIcon onClick={handleChange} />
     </SContainer>
   );
 };

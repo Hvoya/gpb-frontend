@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { H2, Tabs } from '@holism/core';
 import styled from 'styled-components';
 
-import IdiaCard from 'molecules/IdiaCard/IdiaCard';
+import IdeaCard from 'molecules/IdeaCard/IdeaCard';
 import CenterContentHoc from '@/components/HOC/CenterContentHOC';
 
 const SCardContainer = styled.div`
@@ -16,7 +17,18 @@ const SCardContainer = styled.div`
   }
 `;
 
-const BestIdiasBlock = () => {
+const BestIdeasBlock = () => {
+  const [ideas, setIdeas] = useState([]);
+  useEffect(() => {
+    axios
+      .get('/ideas/ideas/', {
+        params: {
+          ordering: 'created',
+          limit: 4,
+        },
+      })
+      .then(r => setIdeas(r.data.results));
+  }, []);
   const [tabList, setTabList] = useState([
     {
       id: 'new',
@@ -39,14 +51,12 @@ const BestIdiasBlock = () => {
       <H2 style={{ marginBottom: 21, paddingTop: 62 }}>Лучшие идеи</H2>
       <Tabs list={tabList} onChange={handleTabChange} />
       <SCardContainer>
-        {Array(4)
-          .fill(null)
-          .map(() => (
-            <IdiaCard />
-          ))}
+        {ideas.map(idea => (
+          <IdeaCard idea={idea} />
+        ))}
       </SCardContainer>
     </CenterContentHoc>
   );
 };
 
-export default BestIdiasBlock;
+export default BestIdeasBlock;

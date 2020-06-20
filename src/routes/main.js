@@ -10,7 +10,6 @@ export const mainRoutes = [
   {
     path: path.clientRoot,
     component: ClientTemplate,
-    exact: true,
   },
   // {
   //   path: path.moderationRoot,

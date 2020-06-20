@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import MainClientBanner from 'molecules/MainClientBanner/MainClientBanner';
-import BestIdiasBlock from 'organisms/BestIdiasBlock/BestIdiasBlock';
-import IdiasSearchBlock from 'organisms/IdiasSearchBlock/IdiasSearchBlock';
+import BestIdeasBlock from 'organisms/BestIdeasBlock/BestIdeasBlock';
+import IdeasSearchBlock from 'organisms/IdeasSearchBlock/IdeasSearchBlock';
 
 const SContainer = styled.div`
   background-color: #f7f9fb;
@@ -15,8 +15,8 @@ const ClientMainPage = () => {
     <div>
       <MainClientBanner />
       <SContainer>
-        <BestIdiasBlock />
-        <IdiasSearchBlock />
+        <BestIdeasBlock />
+        <IdeasSearchBlock />
       </SContainer>
     </div>
   );

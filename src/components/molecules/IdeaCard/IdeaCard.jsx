@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Paragraph, H3, COLORS, Text } from '@holism/core';
+import { COLORS, Text, Paragraph } from '@holism/core';
 
 import Paper from 'atoms/Paper/Paper';
 import { layoutConstants } from '@/enums/layout';
@@ -19,7 +19,13 @@ const STop = styled.div`
   justify-content: space-between;
 `;
 
-const STopic = styled(Paragraph)`
+const SH = styled(Paragraph)`
+  min-height: 40px;
+  font-size: 16px;
+  font-weight: 700;
+`;
+
+const STopic = styled(Text)`
   font-weight: 700;
   margin-bottom: 16px;
   color: ${COLORS.azure};
@@ -34,25 +40,22 @@ const SSmall = styled(Text)`
   color: ${layoutConstants.fontColorTertiary};
 `;
 
-const IdiaCard = ({ type }) => {
+const IdeaCard = ({ type, idea = {} }) => {
   return (
     <Paper height={type ? '170px' : '292px'}>
       <SContainer>
         <STop type={type}>
-          <STopic>Еда</STopic>
+          <STopic>{idea.themes_info?.name}</STopic>
           <SHead>
-            <H3>Организовать доставку пиццы в обед</H3>
+            <SH>{idea.theme}</SH>
             <SSmall>Влад Елисеев 27.05.2020</SSmall>
           </SHead>
         </STop>
-        <Text size={14}>
-          Обедать хочется, уходить из офиса – нет. Посему предлагаю начать скидываться каждый рабочий день на доставку
-          пиццы
-        </Text>
-        <LikeButton />
+        <Text size={14}>{idea.description}</Text>
+        <LikeButton count={idea.like_count} isLiked={false} />
       </SContainer>
     </Paper>
   );
 };
 
-export default IdiaCard;
+export default IdeaCard;

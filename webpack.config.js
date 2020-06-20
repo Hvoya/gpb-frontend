@@ -12,6 +12,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: targetDir,
+    publicPath: '/',
   },
   devtool: 'source-map',
   module: {
@@ -134,8 +135,8 @@ module.exports = {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   devServer: {
-    port: 3000,
-    contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
+    port: 3000,
+    disableHostCheck: true,
   },
 };

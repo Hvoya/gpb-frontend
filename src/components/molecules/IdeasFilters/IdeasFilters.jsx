@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { Select, Chips, Text } from '@holism/core';
 
@@ -17,16 +18,6 @@ const SRow = styled.div`
   }
 `;
 
-const optionsData = [
-  { label: 'Москва', value: 'Moscow' },
-  { label: 'Париж', value: 'Paris' },
-  { label: 'Прага', value: 'Prague' },
-  { label: 'Амстердам', value: 'Amsterdam' },
-  { label: 'Берлин', value: 'Berlin' },
-  { label: 'Лондон', value: 'London' },
-  { label: 'Рига', value: 'Riga' },
-];
-
 const itemsData = [
   { id: 'firstItem', label: 'Москва' },
   { id: 'secondItem', label: 'Петербург' },
@@ -35,12 +26,17 @@ const itemsData = [
   { id: 'fifthItem', label: 'Темников' },
 ];
 
-const IdiasFilters = () => {
+const IdeasFilters = ({ onChange }) => {
+  const [themes, setThemes] = useState([]);
+  useEffect(() => {
+    axios.get('/ideas/themes/').then(r => setThemes(r.data.results.map(t => ({ id: t.id, label: t.name }))));
+  }, []);
+
   return (
     <div>
       <SRow>
         <Text>Тема</Text>
-        <Select placeholder=" Выберете тему" dimension="xsmall" options={optionsData} />
+        <Select onChange={v => onChange(v)} placeholder=" Выберете тему" dimension="small" options={themes} />
       </SRow>
       <SRow>
         <Text>Теги</Text>
@@ -50,4 +46,4 @@ const IdiasFilters = () => {
   );
 };
 
-export default IdiasFilters;
+export default IdeasFilters;
